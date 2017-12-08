@@ -1,20 +1,17 @@
-# real-time-tone-analysis Overview
+# Safety Net Overview
+##### by P. Nigel Brown and Sam Escolas
 
-Real Time Tone Analysis samples dictation or conversations and displays a real-time transcription and an accompanying chart that plots the emotional, social, and writing tone of the language.
+Saftey Net utilizes IBM Watson Artificial Intelligence to turn speech to text and analyze the text for emotions. It then flags content indicating imminent self harm and sends the streamer crisis resources when server-side mood conditions are met.
 
-The project is an experiment that combines the Watson [Speech to Text][speech_service_url] and [Tone Analysis][tone_service_url] services, integrating them in a node.js backend running on [IBM Bluemix][bluemix_url].
+### App won an award from IBM for the best use of the IBM Watson platform at Silicon Hacks 2017
 
-![concept](./design/real-time-tone.png)
+For demonstration, Nigel and Sam curated content from YouTube videos and used a virtual sound card to route the audio output of YouTube to the input of Saftey Net.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
+The app follows the tutorial outlined in the repository from which it is forked only deviating to provide functionality specific to Safety Net. The below instructions were the ones followed to create this app.
 
-![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/cd3110eb8720f2a4e4f8c8c53ce934e9/badge.svg)
 
-There are many real world opportunities for combining these services. For example in call centers, offering instant feedback to operators, so that they can measure and control their response, or companies that run call centres to be concsious of repsonse levels over time.
 
-The same combination of technology might be used personally to help an individual learn about their engagement and responses and manage it for themselves. This becomes especially interesting when tying the technology to other data sources, for example health data.
 
-Health organizations, or insurance companies might encourage individuals to manage their emotions in connection with physical health - imagine being able to understand how an emotional conversation affects your pulse or blood pressure - and how health connected devices could feedback stimulus to help you be aware of that and manage it.
 
 ## Running the app on Bluemix
 
