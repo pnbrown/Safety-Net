@@ -7,6 +7,35 @@ function getToneAnalysis(text)  {
     .fail(err);
 }
 
+var iterator = 0;
+
+function checkUnhappy(data) 
+{
+    var sum = 0;
+
+    for (var i = 0; i < 3; i++) {
+      var len = data.tone_categories[i].tones.length;
+      for (var j = 0; j < len; j++) {
+        if (data.tone_categories[i].tones[j].tone_name == "Joy") {
+            continue;
+        } else {
+            sum += data.tone_categories[0].tones[i].score;
+        }
+      }
+    }
+    if ((sum/4) > .2) {
+        ++iterator;
+        if (iterator >= 5)
+        {
+          alert("end stream");
+        }
+        return true;
+    } else {
+        iterator = 0;
+        return false;
+    }
+}
+
 /**
  * Converts a tone category into a flat object with tone values
  * @param {Object} tone category returned from API
@@ -16,7 +45,6 @@ function getToneValues(toneCategory) {
   toneCategory.tones.forEach(function(toneValue) {
     tone[toneValue.tone_id] = +((toneValue.score * 100).toFixed(2));
   });
-
   return tone;
 }
 
@@ -30,6 +58,8 @@ function getTones(tone) {
   tone.tone_categories.forEach(function(category) {
     tones[category.category_id.split("_")[0]] = getToneValues(category);
   });
+  checkUnhappy(tone);
+  console.log(iterator);
   return tones;
 }
 
